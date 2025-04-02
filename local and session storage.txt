@@ -1,0 +1,33 @@
+In HTML5, you can use two web storage mechanisms to store data on the client-side: localStorage and sessionStorage.
+These two storage options are part of the Web Storage API and allow you to store data on the user's browser for various purposes. 
+
+localStorage:
+----------------------------
+Persistence: Data stored in localStorage persists even after the browser is closed and can be retrieved when the user returns to your website.
+Scope: Data stored in localStorage is shared across all tabs or windows of the same browser .
+You can use localStorage to store data that should be available across multiple sessions.
+
+Example of storing data in localStorage:
+
+// Storing data
+localStorage.setItem('key', 'value');
+
+// Retrieving data
+const data = localStorage.getItem('key');
+----------------------------------------------------------------------------------------------------------------------------------------
+sessionStorage:
+------------------------------------------
+Persistence: Data stored in sessionStorage persists only for the duration of the page session. When the user closes the tab or the browser, the data is deleted.
+Scope: Data stored in sessionStorage is limited to the tab or window in which it was set. 
+You can use sessionStorage to store temporary data that should be available during a single session but doesn't need to persist beyond that.
+
+Example of storing data in sessionStorage:
+
+// Storing data
+sessionStorage.setItem('key', 'value');
+
+// Retrieving data
+const data = sessionStorage.getItem('key');
+
+Both localStorage and sessionStorage provide a simple key-value store for strings. The data is stored as key-value pairs, and you can use methods like setItem, getItem, and removeItem to interact with the stored data. 
+

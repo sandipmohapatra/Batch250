@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Storage Storage</title>
+</head>
+<body>
+<h1>Session Storage Example-1</h1><hr>
+<p>A counter Demo</p>
+<p id="demo">0</p>
+<input type=button value="Click me" onclick="counter()">
+</body>
+
+<script>
+function counter()
+{
+if(sessionStorage.clickcount)
+{
+sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+}
+else
+{
+sessionStorage.clickcount = 1;
+}
+document.getElementById("demo").innerHTML = sessionStorage.clickcount;
+}
+</script>
+</html>

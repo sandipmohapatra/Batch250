@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Local Storage</title>
+</head>
+
+<h1>Local Storage Example-1</h1><hr>
+<script>
+function adddata()
+{
+localStorage.setItem("name",document.getElementById("t1").value);
+localStorage.setItem("Address",document.getElementById("t2").value);
+localStorage.setItem("Phoneno",document.getElementById("t3").value);
+localStorage.setItem("Email",document.getElementById("t4").value);
+document.write("Data will be displayed in the next Page");
+}
+</script>
+<body>
+<table>
+<tr><td>Enter your name<td><input type=text id=t1 size=20 required></tr>
+<tr><td>Enter your address<td><input type=text id=t2 size=20 required></tr>
+<tr><td>Enter your Phone no<td><input type=text id=t3 size=20 required></tr>
+<tr><td>Enter your Email<td><input type=text id=t4 size=20 required></tr>
+<tr><td><td><input type=submit value=submit onclick=adddata()></tr>
+
+</table>
+</body>
+</html>
