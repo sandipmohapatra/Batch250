@@ -1,0 +1,38 @@
+<!-- Geolocation is a HTML5 API .It is used to find out the geographical location of the user.we can find out the latitude and longitude co-ordinates of the user. -->
+
+<html>
+<head>
+<title>Geographical Location</title>
+</head>
+<body>
+<h1>Your Current Location is</h1><hr>
+
+<button onClick="getLocation()">Click Me</button>
+<h1>This is your current Location :</h1>
+<div id="loc"></div>
+</body>
+<script>
+var x=document.getElementById("loc");
+
+function getLocation()
+{
+if(navigator.geolocation)
+{
+navigator.geolocation.getCurrentPosition(showPosition)
+}
+else
+{
+alert("Sorry Brower is not supporting");
+}
+}
+
+function showPosition(position)
+{
+var x="your current location is ("+ "Latitude :" +position.coords.latitude +" ,"+"Longitude :" +position.coords.longitude+")";
+
+alert(x);
+document.getElementById("loc").innerHTML=x;
+}
+</script>
+
+</html>
