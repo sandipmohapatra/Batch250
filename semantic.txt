@@ -1,0 +1,86 @@
+In HTML4 we have seen <div>, <span> etc. are which are non-semantic elements. They don't tell anything about its content.
+
+On the other hand, <form>, <table>, and <article> etc. are semantic elements because they clearly define their content.
+
+In HTML4, developers have to use their own id/class names to style elements: header, top, bottom, footer, menu, navigation, main, container, content, article, sidebar, topnav, etc.
+
+In HTML5 elements (<header> <footer> <nav> <section> <article>), this will become easier. It now allows data to be shared and reused across applications.
+----------------------------------------------------------------------------------------------
+HTML <article> element defines article content within a document, page, application, or a website. It can be used to represent a forum post, a magazine, a newspaper article, or a big story.
+
+Example:
+<article>  
+    <h2>Today's highlights</h2>  
+    <p>First story</p>  
+    <p>Second story</p>  
+    <p>Third story</p>  
+ </article>  
+
+----------------------------------------------------------------------------------------------
+HTML5 <aside> Element
+The <aside> element represent the content which is indirectly giving information to the main content of the page. It is frequently represented as a sidebar.
+
+Example:
+<body>  
+<h2>My last year memories</h2>  
+<p>I have visited Paris with my friends last month. This was the memorable journey and i wish to go there again.</p>  
+  <aside>  
+    <h4>Paris</h4>  
+    <p>Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture</p>  
+  </aside>  
+</body>  
+----------------------------------------------------------------------------------------------
+HTML5 <section> Element
+The <section> element is used to represent the standalone section within an HTML document. A page can have various sections and each section can contain any content, but headings for each section is not mandatory.
+
+Example:
+<h2>Web designing Tutorial</h2>  
+<section>  
+    <h3>HTML</h3>  
+    <p>HTML is an acronym which stands for Hyper Text Markup Language which is used for creating web pages and web applications.</p>  
+ </section>  
+
+ <section>  
+    <h3>CSS</h3>  
+    <p>CSS stands for Cascading Style Sheets. It is a style sheet language which is used to describe the look and formatting of a document written in markup language. It provides an additional feature to HTML.</p>  
+ </section>  
+----------------------------------------------------------------------------------------------
+HTML5 <nav> Element
+The HTML <nav> element is used to define a set of navigation links.
+
+Example:
+<!DOCTYPE html>    
+<html>    
+<body>    
+<nav>    
+  <a href="html-tutorial">HTML</a> |  
+  <a href="java-tutorial">Java</a> |   
+  <a href="php-tutorial">PHP</a> | 
+  <a href="css-tutorial">CSS</a>    
+</nav>    
+</body>    
+</html>  
+
+---------------------------------------------------------------------------------
+HTML5 <header> Element
+The <header> element represent the header of the document which can contain introductory content or navigation links.
+
+Example:
+<header>  
+    <h1>Welcome to Web123.com</h1>  
+    <nav>  
+        <ul>    
+            <li>Home |</li>  
+            <li>About us |</li>  
+            <li>Contact us</li>  
+        </ul>  
+    </nav>  
+ </header>  
+----------------------------------------------------------------------------------------------
+HTML5 <footer> Element
+The <footer> tag defines the footer of an HTML document or page.
+
+Example:
+<footer>  
+    <p>© Copyright 2019. All rights reserved. </p>  
+ </footer>  
