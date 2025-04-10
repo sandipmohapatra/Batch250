@@ -1,0 +1,209 @@
+Questions
+------------------
+A webpage displays a picture. What tag was used to display that picture?
+<b> tag makes the enclosed text bold. What is other tag to make text bold?
+Tags and test that are not directly displayed on the page are written in _____ section.
+Which tag inserts a line horizontally on your web page?
+Which tag allows you to add a header in a table?
+How can you make a bulleted list?
+How can you make a numbered list?
+Choose the correct HTML tag to make a text italic
+Choose the correct HTML tag to make a text bold?
+What is the correct HTML for adding a background color?
+Choose the correct HTML tag for the smallest size heading?
+What is the correct HTML tag for inserting a line break?
+What does vlink attribute mean?
+Which attribute is used to name an element uniquely?
+Which tag creates a check box for a form in HTML?
+To create a combo box (drop down box) which tag will you use?
+Which of the following is not a pair tag?
+The _____ character tells browsers to stop tagging the text
+In HTML document the tags
+Marquee is a tag in HTML to
+There are ____ different of heading tags in HTML
+The way the browser displays the object can be modified by _____
+Tags and test that are not directly displayed on the page are written in _____ section
+Which tag allows you to add a row in a table?
+Using _______ statement is how you test for a specific condition
+A webpage displays a picture. What tag was used to display that picture?
+In CSS class is prepresented by
+In CSS id is prepresented by
+What is the correct syntax of doctype in HTML5?
+Which of the following is used to read an HTML page and render it?
+ Which of the following tag is used for inserting the largest heading in HTML?
+Which element is used to get highlighted text in HTML5?
+Which element is used for or styling HTML5 layout?
+Which HTML tag is used for making character appearance bold?
+Which of the following element is used for canvas graphics?
+Which element is used to create multi-line text input?
+Which element is used for creating links?
+The HTML attribute used to define the inline styles is -
+The CSS property used to control the element's font-size is -
+Metadata does not define _________
+ Which attribute is used to link the bookmark?
+Which of the following is not a type of attribute for input tag?
+The __________ attribute effectively renders the iframe as an inline include, which allows the parent document’s CSS to affect the contents of the iframe.
+Which of the following is not a HTML5 added form element?
+Which of the following property is used to align the text in a table?
+ Which of the following CSS3 property can be used to allow line breaks within words?
+Which of the following box-sizing property value is described by width and height include content, padding, and borders?
+Which of the following property is used to control page breaks when printing a document after the bound element box ends?
+Which of the following element is used for canvas graphics?
+Which element is used to create multi-line text input?
+Which element is used for creating links?
+The HTML attribute used to define the inline styles is -
+The CSS property used to control the element's font-size is -
+Which HTML element defines navigation links?
+What is the correct syntax of doctype in HTML5?
+Which element is used to get highlighted text in HTML5?
+ Which of the following CSS property is used to make the text bold?
+Which of the following are the CSS Extension Prefixes for Webkit?
+Which of the following is not the property of the CSS box model?
+What is the correct syntax of doctype in HTML5?
+Which of the following tag is used for inserting the largest heading in HTML?
+Which of the following extension is used to save an HTML file?
+The CSS property used to specify the transparency of an element is ?
+The HTML attribute used to define the inline styles is ?
+The CSS property used to draw a line around the elements outside the border?
+ Which of the following element is not removed by HTML5?
+Which tag is used if you want to highlight something that is important to the reader?
+_____________ property specifies the direction in which a marquee should move.
+ An ___________ rule is used to define a page block for printed styles.
+ Which of the following selects a normal, or small-caps face from a font family?
+"What should be set with text-align property so that every line has equal width like in magazines and newspapers?
+"
+ Which character is used to represent when a tag is closed in HTML?
+Among the following, which is the HTML paragraph tag?
+Which of the following HTML tag is used to create an unordered list?
+Which of the following HTML tag is used to add a row in a table?
+To show deleted text, which HTML element is used?
+Which tag is used to create a dropdown in HTML Form?
+Which of the following tag is used for inserting the largest heading in HTML?
+Which of the following is not a HTML5 tag?
+ Which HTML tag is used to insert an image?
+Which tag is used to create a blank line in HTML?
+ Which works similar to <b> element?
+What is the correct HTML for adding a background color?
+Choose the correct HTML element to define important text
+Which character is used to indicate an end tag?
+Choose the correct HTML element to define emphasized text
+What is the correct HTML for making a drop-down list?
+The HTML <canvas> element is used to:
+Which of the following HTML element is used for canvas graphics?
+In which part of the HTML metadata is contained?
+How do we write comments in HTML?
+What is the path for an image located in same folder as the current page?
+Which attribute is used  for defining bookmarks in a page?
+Which element is used for creating links?
+What is the work of <address> element in HTML5?
+What is the use of <hr/> tag in HTML?
+Which attribute is not essential under <iframe>?
+Which of the following tag is used for inserting the largest heading in HTML?
+Which of the following is not a HTML5 tag?
+Which tag is used to create a blank line in HTML?
+ Which works similar to <b> element?
+------------------------------------------------------------------------------------------------------------------------
+Answers
+-----------------------
+img
+<strong>
+<head>
+<hr>
+<th> and </th>
+ <ul>
+<ol>
+<i>
+<b>
+<body bgcolor=”yellow”>
+<h6>
+<br>
+visited link
+id
+<input type=”checkbox”>
+<select>
+<img>
+ /
+can be written in both uppercase or lowercase
+Display text with scrolling effect
+6
+attributes
+<head>
+<tr> and </tr>
+If
+img
+.(dot)
+#(hash)
+<!doctype html>
+Web browser
+<h1>
+<mark>
+css
+<b>content</b>
+<canvas>
+textarea
+<a>
+style
+font-size
+color
+ href
+day
+ seamless
+<password>
+ text-align
+word-break
+border-box
+page-break-after
+<canvas>
+textarea
+<a>
+style
+font-size
+<nav>
+<!doctype html>
+<mark>
+font-weight: bold
+-webkit
+color
+ <!doctype html>
+<h1>
+.html
+opacity
+style
+outline
+span
+<b>
+marquee-direction
+ @page
+font-variant
+text-align: justify
+/
+<p>
+<ul>
+ <tr>
+<del>
+<select>
+<h1>
+<slider>
+<img src=”htmllogo.jpg” />
+ <br>
+<strong>
+<body style="background-color:yellow;">  
+<strong>  
+/ 
+<em>
+<select>  
+draw graphics
+<canvas>
+ head tag
+<!……>
+<img src= "pic.jpg">
+id
+<a>
+contains contact details for author
+To create horizontal rule between sections
+ frameborder
+<h1>
+<slider>
+ <br>
+<strong>
+------------------------------------------------------------------------------------------------------------
