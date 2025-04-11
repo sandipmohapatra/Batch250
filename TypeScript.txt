@@ -493,3 +493,178 @@ console.log("Name of Person: " +fullName + '\nAge: ' + Age);
 ----------------------------------------------------------------------------------------------------------------------------
 *In the above example, we have declared Person interface with firstName, lastName as property and FullName and GetAge as method/function. The Employee class implements this interface by using the implements keyword. After implementing an interface, we must declare the properties and methods in the class. If we do not implement those properties and methods, it throws a compile-time error. We have also declared a constructor in the class. So when we instantiate the class, we need to pass the necessary parameters otherwise it throws an error at compile time.
 ---------------------------------------------------------------------------------------------------------------
+TypeScript Tuples
+We know that an array holds multiple values of the same data type. But sometimes, we may need to store a collection of values of different data types in a single variable. Arrays will not provide this feature, but TypeScript has a data type called Tuple .
+
+Example 27
+------------------------
+let empTuple = ["Rohit Sharma", 25, "JavaTpoint"];  
+console.log("Name of the Employee is : "+empTuple [0]);  
+console.log("Age of the Employee is : "+empTuple [1]);  
+console.log(empTuple [0]+" is working in "+empTuple [2]);  
+---------------------
+example-28
+---------------------
+A tuple has two operations:
+
+Push() and Pop()
+Push() :-The push operation is used to add an element to the tuple.
+Pop():-The pop operation is used to remove an element from the tuple.
+--------------------------------------------------------------------------------------------
+
+let empTuple = ["Rohit Sharma", 25, "JavaTpoint"];  
+console.log("Items: "+empTuple);  
+console.log("Length of Tuple Items before push: "+empTuple.length);   // returns the tuple size  
+empTuple.push(10001);   // append value to the tuple   
+console.log("Length of Tuple Items after push: "+empTuple.length);  
+console.log("Items: "+empTuple);  
+
+-----------------------------------------------------------------------------------------
+let empTuple = ["Rohit Sharma", 25, "JavaTpoint", 10001];  
+console.log("Items: "+empTuple);  
+console.log("Length of Tuple Items before pop: "+empTuple.length);   // returns the tuple size  
+empTuple.pop();   // removed value to the tuple   
+console.log("Length of Tuple Items after pop: "+empTuple.length);  
+console.log("Items: "+empTuple);  
+------------------------------------------------------------------------------------
+example-29
+--------------------------------
+//Tuple Declaration  
+let empTuple = ["Bangalore", 101, "Sandip"];     
+
+//Passing tuples in function    
+function display(tuple_values:any[]) 
+{    
+   for(let i = 0;i<empTuple.length;i++) 
+{     
+      console.log(empTuple[i]);    
+   }      
+}    
+
+
+//Calling tuple in function    
+display(empTuple);  
+--------------------------------------------------------------------------------------
+TypeScript Union
+In TypeScript, we can define a variable which can have multiple types of values. In other words, TypeScript can combine one or two different types of data (i.e., number, string, etc.) in a single type, which is called a union type. Union types are a powerful way to express a variable with multiple types. Two or more data types can be combined by using the pipe ('|') symbol between the types.
+----------------------------------------
+example-30
+-------------------------------
+let value: number|string;  
+value = 120;  
+console.log("The Numeric value of a value is: "+value);  
+value = "Welcome to JavaTpoint";  
+console.log("The String value of a value is: "+value);  
+---------------------------------
+example-31
+----------------------------------
+function display(value: (number | string))  
+{  
+    if(typeof(value) === "number")  
+        console.log('The given value is of type number.');  
+    else if(typeof(value) === "string")  
+        console.log('The given value is of type string.');  
+}  
+display(123);  
+display("ABC");  
+------------------------------------------------------------
+example-32
+-----------------------------------
+let arrType:number[]|string[];   
+let i:number;   
+arrType = [1,2,3,4];  
+console.log("Numeric type array:")    
+  
+for(i = 0;i<arrType.length;i++){  
+   console.log(arrType[i]);  
+}  
+arrType = ["India","America","England"];  
+console.log("String type array:")    
+  
+for(i = 0;i<arrType.length;i++){   
+   console.log(arrType[i]);  
+}  
+------------------------------------------------------------
+example-33
+--------------------------------
+The union can replace enums.
+Enums are used to create types that contain a list of constants. By default, enums have index values (0, 1, 2, 3, etc.). We can see the enums in the following example, which contains the list of colors.
+--------------------------------
+export type Color = 'red' | 'white' | 'blue';  
+const myColor: Color = 'red';  
+console.log(myColor.toUpperCase());  
+-------------------------------------------------------------------
+example-34
+-------------------------
+Map:-TypeScript map is a new data structure added in ES6 version of JavaScript. It allows us to store data in a key-value pair and remembers the original insertion order of the keys similar to other programming languages. In TypeScript map, we can use any value either as a key or as a value.
+-----------------------------------------------------------------------------------------
+let map = new Map();  
+  
+map.set('1', 'sandip');     
+map.set(1, 'www.javatpoint.com');       
+map.set(true, 'bool1');   
+map.set('2', 'ajay');  
+  
+console.log( "Value1= " +map.get(1)   );   
+console.log("Value2= " + map.get('1') );   
+console.log( "Key is Present= " +map.has(3) );   
+console.log( "Size= " +map.size );   
+console.log( "Delete value= " +map.delete(1) );   
+console.log( "New Size= " +map.size );  
+---------------------------------------------------------------------------------------------------
+example-35
+--------------------------
+let abc = new Map();  
+   
+abc.set("Rakesh", 40);  
+abc.set("Abhishek", 25);  
+abc.set("Amit", 30);  
+   
+//Iterate over map keys  
+for (let key of abc.keys()) {  
+    console.log("Map Keys= " +key);          
+}  
+//Iterate over map values  
+for (let value of abc.values()) {  
+    console.log("Map Values= " +value);      
+}  
+console.log("The Map Enteries are: ");   
+//Iterate over map entries  
+for (let entry of abc.entries()) {  
+    console.log(entry[0], entry[1]);   
+}  
+------------------------------------------------------
+example-36
+-----------------------
+TypeScript Set
+TypeScript set is a new data structure added in ES6 version of JavaScript. It allows us to store distinct data (each value occur only once) into the List similar to other programming languages. Sets are a bit similar to maps, but it stores only keys, not the key-value pairs.
+
+let stud = new Set();  
+   
+//Add Values  
+stud.add("John");  
+stud.add("Peter");  
+stud.add("Gayle");  
+stud.add("Kohli");   
+stud.add("Dhawan");   
+  
+//Returns Set data  
+console.log(stud);   
+   
+//Check value is present or not  
+console.log(stud.has("Kohli"));        
+console.log(stud.has(10));        
+   
+//It returns size of Set  
+console.log(stud.size);    
+   
+//Delete a value from set  
+console.log(stud.delete("Dhawan"));      
+   
+//Clear whole Set  
+stud.clear();   
+  
+//Returns Set data after clear method.  
+console.log(stud);  
+-------------------------------------------------------------------------------------------------------------
+
