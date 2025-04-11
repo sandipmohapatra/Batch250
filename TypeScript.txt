@@ -324,6 +324,20 @@ getdata< IEmployee>({Name:'sandip',Salary :45000,Address:"Banglore",Age:35});
 getdata< IEmployee>({Name:'Totendra',Salary :45000,Address:"Banglore",Age:20});
 
 -------------------------------------------------------------------------------------------------------------
+The TypeScript access modifiers are of three types. 
+Public, Private, Protected.
+
+Public
+In TypeScript by default, all the members (properties and methods) of a class are public. We can access this data member anywhere without any restriction.
+
+Private
+The private access modifier cannot be accessible outside of its containing class. It ensures that the class members are visible only to that class in which it is containing.
+
+Protected
+A Protected access modifier can be accessed only within the class and its subclass. We cannot access it from the outside of a class in which it is containing.
+
+-------------------------------------------------------------------------------------------------------------
+
 example-21
 ---------------------------------
 class Student 
@@ -384,10 +398,11 @@ class Person extends Student {
 }  
 let obj: Person = new Person(1, "sandip", "CS");  
 console.log(obj.getDetails());  
-----------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 *A Protected access modifier can be accessed only within the class and its subclass. We cannot access it from the outside of a class in which it is containing.
-----------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 Interface Inheritance
+
 We can inherit the interface from the other interfaces. In other words, Typescript allows an interface to be inherited from zero or more base types.
 The base type can be a class or interface. We can use the "extends" keyword to implement inheritance among interfaces.
 --------------------------------------
@@ -441,7 +456,7 @@ console.log("My age is: " +myAges[1]);
 --------------------------------------------------------------------------------------------------------------
 *In the above example, we have declared nameArray that returns string and ageArray that returns number. 
 The type of index in the array is always number so that we can retrieve array elements with the use of its index position in the array.
------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
 example-26
 -------------------------------------------
 // defining interface for class  
@@ -463,9 +478,7 @@ class Employee implements Person {
     GetAge() {  
         return this.age;   
 }  
-    GetAge() {  
-        return this.age;  
-    }  
+    
     constructor(firstN: string, lastN: string, getAge: number) {  
         this.firstName = firstN;  
         this.lastName = lastN;  
@@ -479,4 +492,4 @@ let Age = myEmployee.GetAge();
 console.log("Name of Person: " +fullName + '\nAge: ' + Age);  
 ----------------------------------------------------------------------------------------------------------------------------
 *In the above example, we have declared Person interface with firstName, lastName as property and FullName and GetAge as method/function. The Employee class implements this interface by using the implements keyword. After implementing an interface, we must declare the properties and methods in the class. If we do not implement those properties and methods, it throws a compile-time error. We have also declared a constructor in the class. So when we instantiate the class, we need to pass the necessary parameters otherwise it throws an error at compile time.
-------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
