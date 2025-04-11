@@ -136,7 +136,7 @@ else
 {
 console.log("This is about other students");
 }
------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 example-9
 ------------------
 let x:string="SamsungTV,45000.34,InStock";
@@ -284,11 +284,10 @@ getdata<IProduct>({Name:'Samsung TV',Address:'Bangalore',Price :35000,Instock:tr
 
 getdata<IProduct>({Name:'Samsung Fridge',Address:'Bangalore',Price :45000,Instock:false});
 
---------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 interface is a keyword  in typescript is similar to structure in c.
 It is a datatype having a mixture of datatypes.
----------------------------------------------------------------------------------------------------------- 
+-----------------------------------------------------------------------------------------------
 example- 20
 ---------------------------
 interface IProduct
@@ -323,7 +322,7 @@ getdata< IEmployee>({Name:'sandip',Salary :45000,Address:"Banglore",Age:35});
 
 getdata< IEmployee>({Name:'Totendra',Salary :45000,Address:"Banglore",Age:20});
 
--------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 The TypeScript access modifiers are of three types. 
 Public, Private, Protected.
 
@@ -336,7 +335,7 @@ The private access modifier cannot be accessible outside of its containing class
 Protected
 A Protected access modifier can be accessed only within the class and its subclass. We cannot access it from the outside of a class in which it is containing.
 
--------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 
 example-21
 ---------------------------------
@@ -398,9 +397,9 @@ class Person extends Student {
 }  
 let obj: Person = new Person(1, "sandip", "CS");  
 console.log(obj.getDetails());  
----------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 *A Protected access modifier can be accessed only within the class and its subclass. We cannot access it from the outside of a class in which it is containing.
----------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 Interface Inheritance
 
 We can inherit the interface from the other interfaces. In other words, Typescript allows an interface to be inherited from zero or more base types.
@@ -453,10 +452,10 @@ interface ageArray {
 var myAges: ageArray;  
 myAges =[10, 18, 25];  
 console.log("My age is: " +myAges[1]);  
---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 *In the above example, we have declared nameArray that returns string and ageArray that returns number. 
 The type of index in the array is always number so that we can retrieve array elements with the use of its index position in the array.
----------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 example-26
 -------------------------------------------
 // defining interface for class  
@@ -490,9 +489,9 @@ let myEmployee = new Employee('Abhishek', 'Mishra', 25);
 let fullName = myEmployee.FullName();  
 let Age = myEmployee.GetAge();  
 console.log("Name of Person: " +fullName + '\nAge: ' + Age);  
-----------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 *In the above example, we have declared Person interface with firstName, lastName as property and FullName and GetAge as method/function. The Employee class implements this interface by using the implements keyword. After implementing an interface, we must declare the properties and methods in the class. If we do not implement those properties and methods, it throws a compile-time error. We have also declared a constructor in the class. So when we instantiate the class, we need to pass the necessary parameters otherwise it throws an error at compile time.
----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 TypeScript Tuples
 We know that an array holds multiple values of the same data type. But sometimes, we may need to store a collection of values of different data types in a single variable. Arrays will not provide this feature, but TypeScript has a data type called Tuple .
 
@@ -612,6 +611,9 @@ console.log( "Size= " +map.size );
 console.log( "Delete value= " +map.delete(1) );   
 console.log( "New Size= " +map.size );  
 ---------------------------------------------------------------------------------------------------
+to compile :- tsc --target es6 ex21.ts
+to run :-node ex21.js
+----------------------------------------------------------
 example-35
 --------------------------
 let abc = new Map();  
@@ -666,12 +668,12 @@ stud.clear();
   
 //Returns Set data after clear method.  
 console.log(stud);  
--------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 🔹Class
 A blueprint for creating objects with properties and methods.
 1)It contains Properties
 2)Methods (with implementation)
-3)Constructors
+3)It contains Constructors
 4)Access modifiers (public, private, protected)
 5)Supports inheritance: One class can extend another using extends.
 6)Can implement interfaces using implements.
@@ -690,12 +692,12 @@ class Person {
 -------------------------------------------------------------------------------
 
 🔹 Interface
-__________________________________________________________________________
+___________________________________________________________
 A contract or structure that defines the shape of an object.
 Only defines properties and method signatures — no implementation.
 Used for: Type-checking and enforcing structure.
 Supports inheritance using extends (can extend multiple interfaces).
----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 interface Greetable {
   greet(): string;
 }
@@ -703,7 +705,7 @@ interface Greetable {
 interface Person extends Greetable {
   name: string;
 }
---------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 🔸 Key Differences
 Feature							Class				Interface
 Implementation			Has method implementations		No implementation
@@ -712,7 +714,7 @@ Access Modifiers			Yes (public, private)			No
 Inheritance				extends one class				extends multiple interfaces
 Used for					Creating actual objects			Defining contracts for objects
 Implements				Can implement interfaces		Can't implement anything
--------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
 interface Printable {
   print(): void;
 }
@@ -726,7 +728,7 @@ class Invoice implements Printable
     console.log(this.details);
   }
 }
--------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 
 
 
