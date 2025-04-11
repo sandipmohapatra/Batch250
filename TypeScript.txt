@@ -3,7 +3,7 @@ install nodejs 16
 
 Typescript
 ---------------------
-This was developed by Facebook. Our browser does not support typescript so we have to convert it into JavaScript.
+This was developed by Microsoft. Our browser does not support typescript so we have to convert it into JavaScript.
 The extension for typescript is .ts. where as the extension for JavaScript is .js.
 We have to compile the typescript and after compilation .ts is converted into .js .
 AngularJS use typescript as a scripting language. 
@@ -145,7 +145,6 @@ for(var value of data)
 {
 console.log(value);
 }
-
 console.log(`Name = ${data[0]}`);
 console.log(`Price = ${data[1]}`);
 console.log(`Instock Or Not = ${data[2]}`);
@@ -324,6 +323,55 @@ getdata< IEmployee>({Name:'sandip',Salary :45000,Address:"Banglore",Age:35});
 getdata< IEmployee>({Name:'Totendra',Salary :45000,Address:"Banglore",Age:20});
 
 -------------------------------------------------------------------------------------------------------------
-
-
+Interface Inheritance
+We can inherit the interface from the other interfaces. In other words, Typescript allows an interface to be inherited from zero or more base types.
+The base type can be a class or interface. We can use the "extends" keyword to implement inheritance among interfaces.
+--------------------------------------
+example-21
+--------------------------------------
+interface Person 
+{   
+name:string    
+}  
+interface PersonDetail 
+{   
+    age:number  
+    gender:string  
+}  
+interface Employee extends Person, PersonDetail 
+{   
+    empCode:number  
+}  
+let empObject = <Employee>{};   
+empObject.name = "Abhishek"  
+empObject.age = 25   
+empObject.gender = "Male"  
+empObject.empCode = 43  
+console.log("Name: "+empObject.name);  
+console.log("Employee Code: "+empObject.empCode);  
+console.log("Age: "+empObject.age);  
+console.log("Employee Gender: "+empObject.gender);  
+--------------------------------------------------------------------------------------------------------
+example-22
+----------------------
+// Array which return string  
+interface nameArray {  
+    [index:number]:string  
+}  
+// use of the interface  
+let myNames: nameArray;  
+myNames = ['Virat', 'Rohit', 'Sachin'];  
+console.log("My name is: " +myNames[1]);  
+  
+// Array which return number  
+interface ageArray {  
+    [index:number]:number  
+}  
+var myAges: ageArray;  
+myAges =[10, 18, 25];  
+console.log("My age is: " +myAges[1]);  
+--------------------------------------------------------------------------------------------------------------
+*In the above example, we have declared nameArray that returns string and ageArray that returns number. 
+The type of index in the array is always number so that we can retrieve array elements with the use of its index position in the array.
+-----------------------------------------------------------------------------------------------------------------
 
