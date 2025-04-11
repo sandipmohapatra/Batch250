@@ -285,6 +285,7 @@ getdata<IProduct>({Name:'Samsung TV',Address:'Bangalore',Price :35000,Instock:tr
 getdata<IProduct>({Name:'Samsung Fridge',Address:'Bangalore',Price :45000,Instock:false});
 
 --------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------
 interface is a keyword  in typescript is similar to structure in c.
 It is a datatype having a mixture of datatypes.
 ---------------------------------------------------------------------------------------------------------- 
@@ -323,36 +324,103 @@ getdata< IEmployee>({Name:'sandip',Salary :45000,Address:"Banglore",Age:35});
 getdata< IEmployee>({Name:'Totendra',Salary :45000,Address:"Banglore",Age:20});
 
 -------------------------------------------------------------------------------------------------------------
+example-21
+---------------------------------
+class Student 
+{  
+    public studCode: number;  
+    studName: string;  
+}  
+  
+let stud = new Student();  
+stud.studCode = 101;  
+stud.studName = "Sandip Kumar";  
+  
+console.log(stud.studCode+ " "+stud.studName);  
+------------------------------------------------------------------------------------------------
+*In the above example, studCode is public, and studName is declared without a modifier, so TypeScript treats them as public by default. Since data members are public, they can be accessed outside of the class using an object of the class.
+--------------------------------------------------------------------------------------------------------
+example-22
+---------------------------
+class Student 
+{  
+public studCode: number;  
+private studName: string;  
+constructor(code: number, name: string)
+{  
+this.studCode = code;  
+this.studName = name;  
+}  
+public display() {  
+return (`My unique code: ${this.studCode}, my name: ${this.studName}.`);  
+}  
+}  
+  
+let student: Student = new Student(1, "Sandip");  
+console.log(student.display());  
+-----------------------------------------------------------------------------------------------
+*studCode is private, and studName is declared without a modifier, so TypeScript treats it as public by default. If we access the private member outside of the class, it will give a compile error.
+------------------------------------------------------------------------------------------------------
+example-23
+----------------------------
+class Student {  
+    public studCode: number;  
+    protected studName: string;  
+    constructor(code: number, name: string){  
+        this.studCode = code;  
+        this.studName = name;  
+        }  
+}  
+class Person extends Student {  
+    private department: string;  
+  
+    constructor(code: number, name: string, department: string) {  
+        super(code, name);  
+        this.department = department;  
+    }  
+    public getDetails() {  
+        return (`My unique code: ${this.studCode}, my name: ${this.studName} and I am in ${this.department} Branch.`);  
+    }  
+}  
+let obj: Person = new Person(1, "sandip", "CS");  
+console.log(obj.getDetails());  
+----------------------------------------------------------------------------------------------------------------------
+*A Protected access modifier can be accessed only within the class and its subclass. We cannot access it from the outside of a class in which it is containing.
+----------------------------------------------------------------------------------------------------------------------
 Interface Inheritance
 We can inherit the interface from the other interfaces. In other words, Typescript allows an interface to be inherited from zero or more base types.
 The base type can be a class or interface. We can use the "extends" keyword to implement inheritance among interfaces.
 --------------------------------------
-example-21
+example-24
 --------------------------------------
 interface Person 
 {   
 name:string    
 }  
+
 interface PersonDetail 
 {   
     age:number  
     gender:string  
-}  
+}
+  
 interface Employee extends Person, PersonDetail 
 {   
     empCode:number  
 }  
+
 let empObject = <Employee>{};   
 empObject.name = "Abhishek"  
 empObject.age = 25   
 empObject.gender = "Male"  
 empObject.empCode = 43  
+
 console.log("Name: "+empObject.name);  
 console.log("Employee Code: "+empObject.empCode);  
 console.log("Age: "+empObject.age);  
 console.log("Employee Gender: "+empObject.gender);  
 --------------------------------------------------------------------------------------------------------
-example-22
+example-25
 ----------------------
 // Array which return string  
 interface nameArray {  
@@ -374,4 +442,41 @@ console.log("My age is: " +myAges[1]);
 *In the above example, we have declared nameArray that returns string and ageArray that returns number. 
 The type of index in the array is always number so that we can retrieve array elements with the use of its index position in the array.
 -----------------------------------------------------------------------------------------------------------------
-
+example-26
+-------------------------------------------
+// defining interface for class  
+interface Person {  
+    firstName: string;  
+    lastName: string;  
+ age: number;  
+    FullName();  
+    GetAge();  
+}  
+// implementing the interface  
+class Employee implements Person {  
+    firstName: string;  
+    lastName: string;  
+    age:number;  
+    FullName() {  
+        return this.firstName + ' ' + this.lastName;  
+    }  
+    GetAge() {  
+        return this.age;   
+}  
+    GetAge() {  
+        return this.age;  
+    }  
+    constructor(firstN: string, lastN: string, getAge: number) {  
+        this.firstName = firstN;  
+        this.lastName = lastN;  
+        this.age = getAge;  
+    }  
+}  
+// using the class that implements interface  
+let myEmployee = new Employee('Abhishek', 'Mishra', 25);  
+let fullName = myEmployee.FullName();  
+let Age = myEmployee.GetAge();  
+console.log("Name of Person: " +fullName + '\nAge: ' + Age);  
+----------------------------------------------------------------------------------------------------------------------------
+*In the above example, we have declared Person interface with firstName, lastName as property and FullName and GetAge as method/function. The Employee class implements this interface by using the implements keyword. After implementing an interface, we must declare the properties and methods in the class. If we do not implement those properties and methods, it throws a compile-time error. We have also declared a constructor in the class. So when we instantiate the class, we need to pass the necessary parameters otherwise it throws an error at compile time.
+------------------------------------------------------------------------------------------------------------------------
