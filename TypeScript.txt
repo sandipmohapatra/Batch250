@@ -667,4 +667,71 @@ stud.clear();
 //Returns Set data after clear method.  
 console.log(stud);  
 -------------------------------------------------------------------------------------------------------------
+🔹Class
+A blueprint for creating objects with properties and methods.
+1)It contains Properties
+2)Methods (with implementation)
+3)Constructors
+4)Access modifiers (public, private, protected)
+5)Supports inheritance: One class can extend another using extends.
+6)Can implement interfaces using implements.
+
+class Person {
+  private name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet(): string {
+    return `Hello, ${this.name}`;
+  }
+}
+-------------------------------------------------------------------------------
+
+🔹 Interface
+__________________________________________________________________________
+A contract or structure that defines the shape of an object.
+Only defines properties and method signatures — no implementation.
+Used for: Type-checking and enforcing structure.
+Supports inheritance using extends (can extend multiple interfaces).
+---------------------------------------------------------------------------------------------------------------------
+interface Greetable {
+  greet(): string;
+}
+
+interface Person extends Greetable {
+  name: string;
+}
+--------------------------------------------------------------------------------------------------------------------------
+🔸 Key Differences
+Feature							Class				Interface
+Implementation			Has method implementations		No implementation
+Constructors				Yes							No
+Access Modifiers			Yes (public, private)			No
+Inheritance				extends one class				extends multiple interfaces
+Used for					Creating actual objects			Defining contracts for objects
+Implements				Can implement interfaces		Can't implement anything
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+interface Printable {
+  print(): void;
+}
+
+class Invoice implements Printable 
+{
+  constructor(private details: string) {}
+
+  print(): void 
+{
+    console.log(this.details);
+  }
+}
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
