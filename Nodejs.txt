@@ -1,6 +1,6 @@
 1)nodejs is a cross-platform environment and library for running javascript application.
 2)It is used for creating network and serverside application.
-3)Nodejs is a middleware. Where as javascript,reactjs,angularjs are the frontend.
+3)Nodejs is a middleware. Where as javascript, reactjs, angularjs are the frontend.
 4)Nodejs is server side scripting language which is used to build scalable program.
 5)it is web application framework build on google chrome javascript engine.
 6)In nodejs we have 4 layers.
@@ -32,7 +32,7 @@ res.end();
 example-2
 -----------------------
 console.log("Hello Students");
-console.log("This is weekend Nodejs Batch");
+console.log("This is mphasis Nodejs Batch");
 --------------------------------------------------------------------
 example-3
 -------------------
@@ -55,17 +55,79 @@ var buffer2 = new Buffer(' Kumar');
 var buffer3=Buffer.concat([buffer1,buffer2]);
 console.log("buffer3 is :"+buffer3.toString());
 -----------------------------------------------------------------------------------
+example-5
+--------------------------
+for(var i = 0; i < 10; i++) 
+{
+  (function() {    var j = i;    setTimeout( function() 
+{ 
+console.log(j); 
+}, 500*i);  }) 
+
+ ();
+}
+--------------------------------------------------------------------------------
+example-6
+-------------------------
+var a = {"abc":"bar", "2":"2", "1":"1"};
+for(var i in a) 
+{
+  console.log(i);
+  };
+console.log(a);
+---------------------------------------------------------------------
+exmple-7
+-----------------------
+var a = [
+  { key: 'foo', val: 'bar'},
+  { key: '2', val: '2' },
+  { key: '1', val: '1' }
+  ];
+for(var i in a) 
+{
+  console.log(a[i].key)
+console.log(a[i].val)
+};
+----------------------------------------------------------------------------------
+example-8
+--------------------------
+var arr = [ 'a', 'b', 'c'];
+arr.push('d'); // insert as last item
+console.log(arr); // ['a', 'b', 'c', 'd']
+console.log(arr.pop()); // remove last item
+console.log(arr); // ['a', 'b', 'c']
+-------------------------------------------------------------------
+example-9
+-----------------------
+var arr = [ 'a', 'b', 'c'];
+arr.unshift('1'); // insert as first item
+console.log(arr); // ['1','a', 'b', 'c']
+console.log(arr.shift()); // remove first item
+console.log(arr); // ['a', 'b', 'c']
+------------------------------------------------------------------
+example-10
+----------------------------
+console.log(2 == "2"); // true
+console.log(2 === "2"); // false
+var arr = ["abc", "def", "ghi"];
+// Search the array of keys
+console.log(arr.indexOf("def")); // returns 1means present
+console.log(arr.indexOf("2")); // returns -1means not present
+----------------------------------------------------------------------------------------------------
+example-11
+---------------------------
+
+
 mysql link
 ---------------------------
 https://drive.google.com/drive/folders/14Ht1eOCBnImEDYLwlw8hS4VY63GsSolM?usp=sharing
---------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 My sql connctivity
 ---------------------------------------
 step 1:- npm install mysql
 ---------------------------------------
 sql notes
 -----------------
----------------------
 To see the databases
 1)show databases;
 -----------------------------------------------------
@@ -296,7 +358,7 @@ var abc="SELECT * FROM student WHERE address = 'bangalore' ";
     console.log(result);
   });
 });
-----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
 step 1:-import myql package
 var mysql = require('mysql');
 --------------------------------------------------------------------
@@ -536,15 +598,15 @@ link:-https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-5.0.9-signed.msi
 --------------------------------------------------------------
 Mongodb:-
 ----------------
-Database :- Mysql,sqlserver,Oracle  -structured database (rows and columns)
+Database :- Mysql, sqlserver, Oracle  -structured database (rows and columns)
 
-Mongodb,cacendra :- unstructured database.Data will be in form of document.
-*company which use it are *facebook,paytm,etc..
+Mongodb, cacendra :- unstructured database. Data will be in form of document.
+*company which use it are *facebook, paytm,etc..
 
-1)mongodb is a cross-platform ,document oriented base,high performance,easy scalability.
+1)mongodb is a cross-platform ,document oriented base, high performance, easy scalability.
 2)mongodb works on concept of collection and document.
 3)data is stored in key and value pair. 
-example :-document format,JSON
+example :-document format, JSON
 name:'Koyel',
 email:'Koyel@gmail.com',
 username:'koyel',
@@ -554,7 +616,7 @@ RDBMS			Mongodb
 -------------------------------------------------------------------
 Table			collection
 database			database
-Tuple/row			document
+Tuple/row		document
 column			field
 table join			embedded document
 PrimaryKey		default key_id provided by mongodb itself
@@ -601,10 +663,13 @@ show collections;
 db;
 ------------------------------------------------------------
 5)to create table/collection
-db.createCollection('student');
+db.createCollection('employee');
 ---------------------------------------------------------------
 6)to insert data into student
-db.student.insert({name:'Koyel',email:'Koyel@gmail.com',username:'koyel',password:'1234'});
+db.employee.insert({name:'amit',email:'amit@gmail.com',username:'amit',password:'1234'});
+---------------------------------------------------------------------------
+6)to insert data into student
+db.employee.insert([{name:'amit',email:'amit@gmail.com',username:'amit',password:'1234'},{name:'kiran',email:'kiran@gmail.com',username:'kiran',password:'1234'}]);
 --------------------------------------------------------------------------------------
 7)to view the rows/document
 db.student.find();
@@ -613,43 +678,78 @@ db.student.find();
 db.student.find().pretty();
 ---------------------------------------------------------
 9)to update the document
-db.student.update({email:'sunil@gmail.com'},{$set:{password:'sunil@1'}});
+db.employee.update({name:'kiran'},{$set:{email:'kiran123@gmail.com'}});
 ----------------------------------------------------------------------
 10)to delete the document
 db.student.remove({username:'susmita'});
 ----------------------------------------------------------------
+11)db.employee.updateOne(
+  { _id: ObjectId("67fcb620176571dd6b22e1ac") },
+  { $set: { age: 30, location: "NYC" } }
+);
+----------------------------------------------------------------------------------
 npm install mongodb
 ---------------------------------------
 example-1
 ----------------------
-var MongoClient=require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
-var url="mongodb://localhost:27017/weekendBatch";
+const url = "mongodb://localhost:27017";
+const dbName = "MongoDatabase";
 
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-console.log("Database Created");
-db.close();
-});
+async function main() {
+  const client = new MongoClient(url);
+
+  try {
+    await client.connect();
+    console.log("Connected successfully to server");
+
+    const db = client.db(dbName);
+    console.log(`Database "${dbName}" is ready to use.`);
+  } catch (err) {
+    console.error("Connection failed:", err);
+  } finally {
+    await client.close();
+  }
+}
+
+main().catch(console.error);
 --------------------------------------------------------------------------------------------------
+1)import mongodb driver
+2)Sets the connection URL (local MongoDB instance).
+3)Defines the name of the database to use.
+4)Creates a new MongoClient instance.
+5)Tries to connect to the MongoDB server.
+6)If successful, logs a success message.
+7)Accesses the specified database
+8)Catches any errors and logs them.
+9)Ensures the client is closed, whether successful or not.
+10)Runs the main function and catches unhandled rejections.
+---------------------------------------------------
 example-2
 ----------------------
-var MongoClient=require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
-var url="mongodb://localhost:27017/weekendBatch";
+const url = "mongodb://localhost:27017";
+const dbName = "MongoDatabase";
 
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-dbo.createCollection("student",function(err,res)
-{
-if(err) throw err;
-console.log("Collection created");
-db.close();
-});
-});
+async function createCollection() {
+  const client = new MongoClient(url);
+
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+
+    await db.createCollection("student");
+    console.log("Collection created");
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await client.close();
+  }
+}
+
+createCollection();
 ----------------------------------------------------------------------------------------------
 example-3
 -------------------------
