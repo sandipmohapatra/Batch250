@@ -55,6 +55,17 @@ var buffer2 = new Buffer(' Kumar');
 var buffer3=Buffer.concat([buffer1,buffer2]);
 console.log("buffer3 is :"+buffer3.toString());
 -----------------------------------------------------------------------------------
+var buffer1 = new Buffer('TutorialsPoint'); 
+//slicing a buffer 
+var buffer2 = buffer1.slice(0,9); 
+console.log("buffer2 content: " + buffer2.toString()); 
+---------------------------------------------------------------------------------------------
+var buffer1 = new Buffer('ABC'); 
+//copy a buffer 
+var buffer2 = new Buffer(2); 
+buffer1.copy(buffer2); 
+console.log("buffer2 content: " + buffer2.toString()); 
+----------------------------------------------------------------------------------------------------------------
 example-5
 --------------------------
 for(var i = 0; i < 10; i++) 
@@ -116,6 +127,123 @@ console.log(arr.indexOf("2")); // returns -1means not present
 ----------------------------------------------------------------------------------------------------
 example-11
 ---------------------------
+buf = new Buffer(26); 
+for (var i = 0 ; i < 26 ; i++)
+ { 
+  buf[i] = i + 97; 
+}  
+console.log( buf.toString('ascii'));        
+// outputs: abcdefghijklmnopqrstuvwxyz 
+console.log( buf.toString('ascii',0,5));    
+// outputs: abcde 
+console.log( buf.toString('utf8',0,5));     
+// outputs: abcde 
+console.log( buf.toString(undefined,0,5));  
+// encoding defaults to 'utf8', outputs abcde 
+------------------------------------------------------------------------------------------------------
+example-12
+----------------------------------
+var fs = require("fs");  
+var data = fs.readFileSync('test.txt');  
+console.log(data.toString()); 
+console.log("Program Ended"); 
+--------------------------------------------------------------------------------------
+example-13
+---------------------------------
+function printHello(){ 
+   console.log( "Hello, World!"); 
+} 
+// Now call above function after 2 seconds 
+setTimeout(printHello, 2000)
+-----------------------------------------------------------
+example-14
+-----------------------
+var buffer = new Buffer.from('TutorialsPoint'); 
+//length of the buffer 
+console.log("buffer length: " + buffer.length); 
+----------------------------------------------------------------------------
+example-15
+--------------------------
+var obj = { hello: 'world', data: [ 1, 2, 3 ] };
+console.log(JSON.stringify(obj));
+-----------------------------------------------------------------
+example-16
+-------------------------------
+var Foo = function (name) 
+{
+ this.name = name;
+ };
+
+Foo.prototype.data = [1, 2, 3]; // setting a non-primitive property
+
+Foo.prototype.showData = function ()
+ {
+ console.log(this.name, this.data);
+ };
+var foo1 = new Foo("foo1");
+var foo2 = new Foo("foo2");
+// both instances use the same default value of data
+foo1.showData(); // "foo1", [1, 2, 3]
+foo2.showData(); // "foo2", [1, 2, 3]
+// however, if we change the data from one instance
+foo1.data.push(4);
+// it mirrors on the second instance
+foo1.showData(); // "foo1", [1, 2, 3, 4]
+foo2.showData(); // "foo2", [1, 2, 3, 4]
+------------------------------------------------------------------------------------------------
+example-17
+-------------------------
+var arr = [
+  { items: 'Xylophone' },
+  { items: 'Carrot' },
+  { items: 'Apple'}
+  ];
+arr = arr.sort(function (a, b) {
+  return a.items.localeCompare(b.items);
+});
+console.log( arr );
+
+-----------------------------------------------------------------------------------------
+example-18
+----------------------------
+var obj = { x: '1', a: '2', b: '3'};
+var items = Object.keys(obj);
+items.sort(); // sort the array of keys
+items.forEach(function(item) {
+  console.log(item + '=' + obj[item]);
+});
+---------------------------------------------------------------------------------
+example-19
+----------------------
+var group = { 'Alice': { a: 'b', b: 'c' }, 'Bob': { a: 'd' }};
+var people = Object.keys(group);
+people.forEach(function(person) 
+{
+  var items = Object.keys(group[person]);
+  items.forEach(function(item) 
+{
+    var value = group[person][item];
+    console.log(person+': '+item+' = '+value);
+  });
+});
+
+------------------------------------------------------------------------------------------
+example-20
+-------------------------
+var a = [ 'a', 'b', 'c' ];
+var b = [ 1, 2, 3 ];
+console.log( a.concat(['d', 'e', 'f'], b) );
+console.log( a.join('! ') );
+console.log( a.slice(1, 2) );//Extracts a section of an array and 			//returns a new array.
+console.log( a.reverse() );
+console.log( ' ---------------------------------------------------------- ');
+var c = a.splice(0, 2);//Adds or removes elements from an array.
+console.log( a, c );
+var d = b.splice(1, 1, 'foo', 'bar');
+console.log( b, d );
+----------------------------------------------------------------------------------------------------
+example-21
+------------------------------
 
 
 mysql link
@@ -441,7 +569,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  var sql = "DELETE FROM student WHERE name like  '%ya' ";
+  var sql = "DELETE FROM student WHERE name like  '%s' ";
 
   con.query(sql, function (err, result) {
     if (err) throw err;
@@ -753,215 +881,139 @@ createCollection();
 ----------------------------------------------------------------------------------------------
 example-3
 -------------------------
-var MongoClient=require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
-var url="mongodb://localhost:27017/weekendBatch";
+const url = "mongodb://localhost:27017";
+const dbName = "MongoDatabase";
 
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-var myobj=[{name:"akshya",address:"bangalore",email:"akshya@gmail.com"},
-{name:"guru",address:"bangalore",email:"guru@gmail.com"},
-{name:"Pratiksha",address:"bangalore",email:"pratiksha@gmail.com"}];
+async function run() {
+  const client = new MongoClient(url);
 
-dbo.collection("student").insert(myobj,function(err,res)
-{
-if(err) throw err;
-console.log("row inserted :"+res.insertedCount);
-db.close();
-});
-});
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB");
+
+    const db = client.db(dbName);
+    const studentCollection = db.collection("student");
+
+    const myobj = [
+      { name: "akshya", address: "bangalore", email: "akshya@gmail.com" },
+      { name: "guru", address: "bangalore", email: "guru@gmail.com" },
+      { name: "Pratiksha", address: "bangalore", email: "pratiksha@gmail.com" }
+    ];
+
+    const result = await studentCollection.insertMany(myobj);
+    console.log("Rows inserted:", result.insertedCount);
+  } catch (err) {
+    console.error("Error:", err);
+  } finally {
+    await client.close();
+  }
+}
+
+run();
 --------------------------------------------------------------------------------------
 findOne():- This is used to display the first record in the collection.
 ---------------------------------------------------------------------------------------
 example-4
 -------------------------
-var MongoClient=require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
-var url="mongodb://localhost:27017/weekendBatch";
+const url = "mongodb://localhost:27017";
+const dbName = "MongoDatabase";
 
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-dbo.collection("student").findOne({},function(err,res)
-{
-if(err) throw err;
-console.log("First Name is:"+res.name);
-console.log("First Address is:"+res.address);
-console.log("First email is:"+res.email);
-db.close();
-});
-});
+async function run() {
+  const client = new MongoClient(url);
+  
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const student = await db.collection("student").findOne({});
 
+    if (!student) {
+      console.log("No document found");
+    } else {
+      console.log("First Name is: " + student.name);
+      console.log("First Address is: " + student.address);
+      console.log("First email is: " + student.email);
+    }
+  } catch (err) {
+    console.error("Error:", err);
+  } finally {
+    await client.close();
+  }
+}
+
+run();
 ------------------------------------------------------------------------------------
 example-5
 ---------------------
 find by name
 ---------------------
-var MongoClient=require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
-var url="mongodb://localhost:27017/weekendBatch";
+const url = "mongodb://localhost:27017";
+const dbName = "MongoDatabase";
 
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-var qry={name:"akshya"};
-dbo.collection("student").find(qry).toArray(function(err,res)
-{
-if(err) throw err;
-console.log(res);
-db.close();
-});
-});
+async function run() {
+  const client = new MongoClient(url);
+  
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const qry = { name: "akshya" };
+    const result = await db.collection("student").find(qry).toArray();
+
+    if (result.length === 0) {
+      console.log("No matching documents found.");
+    } else {
+      result.forEach(doc => {
+        console.log(`Name: ${doc.name}, Address: ${doc.address}, Email: ${doc.email}`);
+      });
+    }
+  } catch (err) {
+    console.error("Error:", err);
+  } finally {
+    await client.close();
+  }
+}
+
+run();
 -------------------------------------------------------------------------
 example-6
 ---------------------
 find by address
 ---------------------
-var MongoClient=require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 
-var url="mongodb://localhost:27017/weekendBatch";
+const url = "mongodb://localhost:27017";
+const dbName = "MongoDatabase";
 
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-var qry={address:"bangalore"};
-dbo.collection("student").find(qry).toArray(function(err,res)
-{
-if(err) throw err;
-console.log(res);
-db.close();
-});
-});
+async function run() {
+  const client = new MongoClient(url);
+  
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const qry = { address: "bangalore" };
+    const result = await db.collection("student").find(qry).toArray();
+
+    if (result.length === 0) {
+      console.log("No matching documents found.");
+    } else {
+      result.forEach(doc => {
+        console.log(`Name: ${doc.name}, Address: ${doc.address}, Email: ${doc.email}`);
+      });
+    }
+  } catch (err) {
+    console.error("Error:", err);
+  } finally {
+    await client.close();
+  }
+}
+
+run();
 -------------------------------------------------------------------------
-example-7
--------------------
-sorting in (1)ascending and (-1)descending order
--------------------------------------------------------------
-var MongoClient=require('mongodb').MongoClient;
-
-var url="mongodb://localhost:27017/weekendBatch";
-
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-var qry={email: 1};
-dbo.collection("student").find().sort(qry).toArray(function(err,res)
-{
-if(err) throw err;
-console.log(res);
-db.close();
-});
-});
-------------------------------------------------------------------------
-example-8
--------------------
-sorting in (1)ascending and (-1)descending order
--------------------------------------------------------------
-var MongoClient=require('mongodb').MongoClient;
-
-var url="mongodb://localhost:27017/weekendBatch";
-
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-var qry={email: -1};
-dbo.collection("student").find().sort(qry).toArray(function(err,res)
-{
-if(err) throw err;
-console.log(res);
-db.close();
-});
-});
-------------------------------------------------------------------------
-example-9
--------------------
-delete a row according to name
----------------------------------------------------------------------
-var MongoClient=require('mongodb').MongoClient;
-
-var url="mongodb://localhost:27017/weekendBatch";
-
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-var qry={name: 'akshya'};
-dbo.collection("student").deleteOne(qry,function(err,res)
-{
-if(err) throw err;
-console.log("1 row deleted");
-db.close();
-});
-});
-----------------------------------------------------------------
-To update record in the Collection
-----------------------------------------------------------------
-example-10
---------------------------
-var MongoClient=require('mongodb').MongoClient;
-
-var url="mongodb://localhost:27017/weekendBatch";
-
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-var qry={address:"bangalore"};
-var newqry={$set:{address:"Bangalore"}};
-dbo.collection("student").updateMany(qry,newqry,function(err,res)
-{
-if(err) throw err;
-console.log("1 row updated");
-db.close();
-});
-});
----------------------------------------------------------------------------------------------------------------------
-To display 2 records in the collection
-----------------------------------------------------------
-example-11
---------------------------
-var MongoClient=require('mongodb').MongoClient;
-
-var url="mongodb://localhost:27017/weekendBatch";
-
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-dbo.collection("student").find().limit(2).toArray(function(err,res)
-{
-if(err) throw err;
-console.log(res);
-db.close();
-});
-});
-----------------------------------------------------------------
-example-12
---------------------------
-var MongoClient=require('mongodb').MongoClient;
-
-var url="mongodb://localhost:27017/weekendBatch";
-
-MongoClient.connect(url,function(err,db)
-{
-if(err) throw err;
-var dbo=db.db("weekendBatch");
-dbo.collection("student").drop(function(err,delOK)
-{
-if(err) throw err;
-if(delOK)
-console.log("table/collection deleted");
-db.close();
-});
-});
-----------------------------------------------------------------
 
 
 
