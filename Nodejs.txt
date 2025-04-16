@@ -1,8 +1,9 @@
-1)nodejs is a cross-platform environment and library for running javascript application.
-2)It is used for creating network and serverside application.
-3)Nodejs is a middleware. Where as javascript, reactjs, angularjs are the frontend.
+1)Nodejs is a cross-platform environment and library for running JavaScript application.
+2)It is used for creating network and server side application.
+3)Nodejs is a middleware. Where as JavaScript, reactjs, angularjs are the frontend.
 4)Nodejs is server side scripting language which is used to build scalable program.
-5)it is web application framework build on google chrome javascript engine.
+5)it is web application framework build on google chrome JavaScript engine.
+
 6)In nodejs we have 4 layers.
 i)client layer:- The client layer contains web browser, mobile browser or application which can make an HTTP request to the web server.
 ii)server layer:-The server layer contains the web server which can intercept the request made by client and return back the response.
@@ -65,7 +66,7 @@ var buffer1 = new Buffer('ABC');
 var buffer2 = new Buffer(2); 
 buffer1.copy(buffer2); 
 console.log("buffer2 content: " + buffer2.toString()); 
-----------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 example-5
 --------------------------
 for(var i = 0; i < 10; i++) 
@@ -124,7 +125,7 @@ var arr = ["abc", "def", "ghi"];
 // Search the array of keys
 console.log(arr.indexOf("def")); // returns 1means present
 console.log(arr.indexOf("2")); // returns -1means not present
-----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 example-11
 ---------------------------
 buf = new Buffer(26); 
@@ -140,7 +141,7 @@ console.log( buf.toString('utf8',0,5));
 // outputs: abcde 
 console.log( buf.toString(undefined,0,5));  
 // encoding defaults to 'utf8', outputs abcde 
-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 example-12
 ----------------------------------
 var fs = require("fs");  
@@ -241,10 +242,7 @@ var c = a.splice(0, 2);//Adds or removes elements from an array.
 console.log( a, c );
 var d = b.splice(1, 1, 'foo', 'bar');
 console.log( b, d );
-----------------------------------------------------------------------------------------------------
-example-21
-------------------------------
-
+---------------------------------------------------------------------------------------------------
 
 mysql link
 ---------------------------
@@ -817,7 +815,7 @@ db.student.remove({username:'susmita'});
 );
 ----------------------------------------------------------------------------------
 npm install mongodb
----------------------------------------
+----------------------------------------------------------------------------------------
 example-1
 ----------------------
 const { MongoClient } = require('mongodb');
@@ -1014,6 +1012,95 @@ async function run() {
 
 run();
 -------------------------------------------------------------------------
-
-
+Express JS
+---------------------
+Express is a fast, essential and moderate web framework of Node.js. You can assume express as a layer built on the top of the Node.js that helps manage a server and routes. It provides a robust set of features to develop web and mobile applications.
+It can be used to design single-page, multi-page and hybrid web applications.
+It allows to setup middleware to respond to HTTP Requests.
+It defines a routing table which is used to perform different actions based on HTTP method and URL.
+It allows to dynamically render HTML Pages based on passing arguments to templates.
+It is Asynchronous and single threaded
+It has MVC like structure
+It has Robust API makes routing easy
+----------------------------------------------------------------------------------------------
+step 1:-npm install -g express
+step 2:-npm install express --save
+---------------------------------------------------------------
+Example-1
+----------------------------------------------------------------
+var express = require('express');  
+var app = express();  
+app.get('/', function (req, res) 
+{  
+   res.send('Welcome to JavaTpoint');  
+})  
+var server = app.listen(8000, function () {  
+var host = server.address().address  
+  var port = server.address().port  
+ console.log("Example app listening at http://%s:%s", host, port)  
+})  
+-----------------------------------------------
+Example-2
+-----------------------------
+<html>  
+<body>  
+<form action="http://127.0.0.1:8081/process_get" method="GET">  
+First Name: <input type="text" name="first_name">  <br>  
+Last Name: <input type="text" name="last_name">  
+<input type="submit" value="Submit">  
+</form>  
+</body>  
+</html>  
+---------------------------------------------------------
+var express = require('express');  
+var app = express();  
+app.use(express.static('public'));  
+  
+app.get('/index.html', function (req, res)
+ {  
+   res.sendFile( __dirname + "/" + "index.html" );  
+})  
+app.get('/process_get', function (req, res)
+ {  
+response = {  
+       first_name:req.query.first_name,  
+       last_name:req.query.last_name  
+   };  
+   console.log(response);  
+   res.end(JSON.stringify(response));  
+})  
+var server = app.listen(8081, function () {  
+  
+  var host = server.address().address  
+  var port = server.address().port  
+  console.log("Example app listening at http://%s:%s", host, port)  
+  
+})  
+-----------------------------------------------------------------------------------------------------------------
+1)Serves static files from the public directory.
+2)Responds with index.html when /index.html is requested.
+3)Processes GET requests to /process_get and returns a JSON response containing first_name and last_name from query parameters.
+4)If you visit this URL in a browser:
+http://localhost:8081/process_get?first_name=John&last_name=Doe
+json
+{
+  "first_name": "John",
+  "last_name": "Doe"
+}
+app.get('/index.html', function (req, res) {
+    res.sendFile(__dirname + "/" + "index.html");
+});
+You could simplify by pointing directly to public/index.html, and just let the static middleware serve it:
+// This alone serves index.html from /public automatically
+app.use(express.static('public'));
+app.use((req, res) => {
+    res.status(404).send("Sorry, page not found!");
+});
+Consider using path.join for paths
+const path = require('path');
+res.sendFile(path.join(__dirname, 'index.html'));
+Use const/let instead of var
+---------------------------------------------------------------------------------------------------------------------
+Example-3
+------------------------------
 
