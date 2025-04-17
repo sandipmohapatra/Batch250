@@ -484,7 +484,7 @@ var abc="SELECT * FROM student WHERE address = 'bangalore' ";
     console.log(result);
   });
 });
-----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
 step 1:-import myql package
 var mysql = require('mysql');
 --------------------------------------------------------------------
@@ -1039,7 +1039,7 @@ var host = server.address().address
   var port = server.address().port  
  console.log("Example app listening at http://%s:%s", host, port)  
 })  
------------------------------------------------
+-----------------------------
 Example-2
 -----------------------------
 <html>  
@@ -1076,7 +1076,7 @@ var server = app.listen(8081, function () {
   console.log("Example app listening at http://%s:%s", host, port)  
   
 })  
------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 1)Serves static files from the public directory.
 2)Responds with index.html when /index.html is requested.
 3)Processes GET requests to /process_get and returns a JSON response containing first_name and last_name from query parameters.
@@ -1100,7 +1100,144 @@ Consider using path.join for paths
 const path = require('path');
 res.sendFile(path.join(__dirname, 'index.html'));
 Use const/let instead of var
----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 Example-3
 ------------------------------
+var express = require('express');  
+var app = express();  
+app.get('/', function (req, res) {  
+   console.log("Got a GET request for the homepage");  
+   res.send('Welcome to JavaTpoint!');  
+})  
+app.post('/', function (req, res) {  
+   console.log("Got a POST request for the homepage");  
+   res.send('I am Impossible! ');  
+})  
+app.delete('/del_student', function (req, res) {  
+   console.log("Got a DELETE request for /del_student");  
+   res.send('I am Deleted!');  
+})  
+app.get('/enrolled_student', function (req, res) {  
+   console.log("Got a GET request for /enrolled_student");  
+   res.send('I am an enrolled student.');  
+})  
+// This responds a GET request for abcd, abxcd, ab123cd, and so on  
+app.get('/ab*cd', function(req, res) {     
+   console.log("Got a GET request for /ab*cd");  
+   res.send('Pattern Matched.');  
+})  
+var server = app.listen(8000, function () {  
+var host = server.address().address  
+  var port = server.address().port  
+console.log("Example app listening at http://%s:%s", host, port)  
+})  
+------------------------------------------------------------------------------------------------
+*only get will be used for routing
+-----------------------------------------------------------------
+Example 5
+-----------------------------------
+<html>  
+<body>  
+<form action="http://127.0.0.1:8000/get_example2" method="GET">  
+First Name: <input type="text" name="first_name"/>  <br/>  
+Last Name: <input type="text" name="last_name"/><br/>  
+<input type="submit" value="Submit"/>  
+</form>  
+</body>  
+</html>  
+-----------------------------
+var express = require('express');  
+var app=express();  
+app.get('/get_example2', function (req, res) 
+{  
+res.send('<p>Username: ' + req.query['first_name']+'</p><p>Lastname: '+req.query['last_name']+'</p>');  
+})  
+var server = app.listen(8000, function () {  
+  var host = server.address().address  
+  var port = server.address().port  
+  console.log("Example app listening at http://%s:%s", host, port)  
+})  
+---------------------------------------------------------------------
+*run the index.html
+----------------------------------------
+example-6
+-------------------------
+<!DOCTYPE html>  
+<html>  
+<body>  
+<form action="http://127.0.0.1:8000/get_example3">    
+<table>    
+<tr><td>Enter First Name:</td><td><input type="text" name="firstname"/><td></tr>    
+<tr><td>Enter Last Name:</td><td><input type="text" name="lastname"/><td></tr>    
+<tr><td>Enter Password:</td><td><input type="password" name="password"/></td></tr>    
+<tr><td>Sex:</td><td>  
+<input type="radio" name="sex" value="male"> Male  
+<input type="radio" name="sex" value="female">Female  
+</td></tr>    
+<tr><td>About You :</td><td>  
+<textarea rows="5" cols="40" name="aboutyou" placeholder="Write about yourself">  
+</textarea>  
+</td></tr>    
+<tr><td colspan="2"><input type="submit" value="register"/></td></tr>    
+</table>    
+</form>   
+</body>  
+</html>  
+-----------------------------------------------------------
+const express = require('express');
+const app = express();
 
+app.get('/get_example3', function (req, res) {
+  const { firstname, lastname, password, aboutyou } = req.query;
+  res.send(`
+    <p>Firstname: ${firstname}</p>
+    <p>Lastname: ${lastname}</p>
+    <p>Password: ${password}</p>
+    <p>About You: ${aboutyou}</p>
+  `);
+});
+
+const server = app.listen(8000, function () {
+  const host = server.address().address;
+  const port = server.address().port;
+  console.log("Example app listening at http://%s:%s", host, port);
+});
+-------------------------------------------------------------------------------------------
+example-7
+----------------------
+Post 
+---------------
+<html>  
+<body>  
+<form action="http://127.0.0.1:8000/process_post" method="POST">  
+First Name: <input type="text" name="first_name">  <br>  
+Last Name: <input type="text" name="last_name">  
+<input type="submit" value="Submit">  
+</form>  
+</body>  
+</html>  
+--------------------------------------------------------------------------------
+var express = require('express');  
+var app = express();  
+var bodyParser = require('body-parser');  
+// Create application/x-www-form-urlencoded parser  
+var urlencodedParser = bodyParser.urlencoded({ extended: false })  
+app.use(express.static('public'));  
+app.get('/index.html', function (req, res) {  
+   res.sendFile( __dirname + "/" + "index.html" );  
+})  
+app.post('/process_post', urlencodedParser, function (req, res) {  
+   // Prepare output in JSON format  
+   response = {  
+       first_name:req.body.first_name,  
+       last_name:req.body.last_name  
+   };  
+   console.log(response);  
+   res.end(JSON.stringify(response));  
+})  
+var server = app.listen(8000, function () {  
+  var host = server.address().address  
+  var port = server.address().port  
+  console.log("Example app listening at http://%s:%s", host, port)  
+})  
+------------------------------------------------------------------------------------------
