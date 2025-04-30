@@ -30,7 +30,7 @@ It provides faster rendering.
 
 -------------------------------------------------------------------------------------------------
 Types of Binding
-----------------------------
+------------------------------------------
 1)one way binding:-
 ------------------------------------------
 i)interpolation:-{{6+7}},{{name}}
@@ -77,12 +77,12 @@ app.component.html
 <table>
 <tr><td>Enter your name</td><td><input type=text name=t1 size=20></td></tr>
 <tr><td>Enter your Address</td><td><input type=text name=t2 size=20></td></tr>
-<tr><td>Enter your name</td><td><input type=text name=t3 size=20></td></tr>
-<tr><td>Enter your name</td><td><input type=text name=t4 size=20></td></tr>
-<tr><td>Enter your name</td><td><input type=text name=t5 size=20></td></tr>
+<tr><td>Enter your Email</td><td><input type=text name=t3 size=20></td></tr>
+<tr><td>Enter your Phone no</td><td><input type=text name=t4 size=20></td></tr>
+<tr><td>Enter your EmpID</td><td><input type=text name=t5 size=20></td></tr>
 <tr><td></td><td><input type=submit value="Submit"></td></tr>
 </table>
----------------------------------------------------------
+-------------------------------------------------------------------
 app.component.css
 --------------------------------
 h1{
@@ -921,7 +921,7 @@ public txtPrice:any;
 
 public NewProduct=
 {
-  Name:"",  <--local variable which are inside the function (scope is within the function)
+  Name:"", <--local variable which are inside the function (scope is within the function)
   Price:0
 }
 
@@ -980,9 +980,10 @@ example1.html
 
 <div>
 <h2>Product List</h2>
-<table>
+<table> 
 <tr><th>Name</th><th>Price </th><th>Action</th></tr>
-<tr *ngFor="let product of product; let i=index"><td>{{product.Name}}</td><td>{{product.Price}}</td>
+<tr *ngFor="let product of product; let i=index">
+<td>{{product.Name}}</td><td>{{product.Price}}</td>
 <td><button class="btn btn-danger" (click)="DeleteProduct(i)">Delete Product</button></td>
 </tr>
 </table>
@@ -1193,7 +1194,7 @@ import { Component } from '@angular/core';
  })
 export class MultiplierComponent 
  {
-public msg='welcome to Angular 10';
+public msg='welcome to Angular 15';
    }
 -----------------------------------------------------------------------
 example-shopping cart
@@ -1368,18 +1369,18 @@ public OnCategoryChange()
      }
   }
 }
-----------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 Angular Service
---------------------------
+-----------------------------------------------------
 It is used for creating user-defined business logic which can be used and reused in the application by injecting into any component.
--------------------------------
+------------------------------------------------------
 Different between service and function
 ------------------------------------------------------
 function is can be used  within a single module .
 were as service can be used multiple modules or a single application (banking application)
-------------------------------------------
+-------------------------------------------------------
 steps to create a service.
---------------------------------------
+-------------------------------------------------------
 step 1:- we will create a service in a separate module.
 step 2:- We will inject it to a component and use it.
 
@@ -1486,7 +1487,7 @@ constructor(x:Service2Component)
 
 -------------------------------------------------------------------------------
 providers: [Service1Component,Service2Component],
-  bootstrap: [Calculator1Component]
+bootstrap: [Calculator1Component]
 ----------------------------------------------------------------
 *Service2Component  it should not be there in declaration.
 ---------------------------------------------------------------------------------------------
@@ -1637,7 +1638,7 @@ we have some directives to validate a form
 5)NgInvalid:- it returns true if any input validations are invalid.
 6)NgErrors:-It is an object that collects all errors of input field.
 *required, Minlength, Maxlength, pattern, email validation.
-------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 7)NgModel:- dynamic element.it is model who's value is changed dynamically.
 example:- <input type="text" [(ngModel)]="username">
 8)NgClass:-dynamic assignment of css class. we can change the html element dynamically.
@@ -1934,9 +1935,9 @@ These are some of the major lifecycle hooks available in Angular. By implementin
 </div> 
 --------------------------------------------------------------------------------------
 how to unbind ng modules?
-----------------------------------------------
+--------------------------------------------------------------------------------------
 custom binding in angular?
---------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 <pre ngNonBindable>{{ name }}</pre>
 
 The <pre ngNonBindable>{{ name }}</pre> syntax in Angular is used to prevent Angular from parsing and evaluating the expression ({{ name }}) inside the element. The ngNonBindable directive tells Angular to treat the contents of the element as plain text and not perform any data binding or interpolation.
@@ -2128,12 +2129,12 @@ const user2:user ={name:'amit',age:40};
 --------------------------------------------------------------------------
 Angular Form
 ---------------------------------------------------------------------------
-1)Template Driven forms
+1)Template Driven forms 
 2)Reactive forms or Model driven forms.
 --------------------------------------------------------------------
 1)Template Driven form :-
 --------------------------------
-a)A template driven forms is a dynamic forms than can handle client side form .
+a)A template driven forms is a dynamic forms that can handle client side form .
 b)These forms are heavy on page and will take more time rendering (genrating output)
 c)These form and their elements in template are configure by using the directive.
 i)ngForm   ii)ngModel
@@ -2146,15 +2147,6 @@ import {FormsModule } from '@angular/forms';
 
 import :[FormsModule],
 
-------------------------------------------
-app.component.html
------------------------------
-<form #frmRegsiter="ngForm" (submit)="onclick(frmRegsiter.value)">
-
-<div class="form-group">
-<label>Name</label>
-<input type="text" class="form-control" name=t1 required #t1="ngModel" ngModel>
-</div>
 ------------------------------------------------------------------------------------------
 example-1
 ===================
@@ -2183,27 +2175,27 @@ export class TemplateFormComponent {
 --------------------------------------------------------------------------------
 contact .html
 ------------------------
-<h2>Contact Us</h2>
+<h2>Contact Us</h2><hr color="red"><hr color="blue">
 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-
+    <table>
   <!-- Name Field -->
   <div>
-    <label for="name">Name:</label>
-    <input
+   <tr> <td><label for="name">Name:</label></td>
+    <td><input
       type="text"
       id="name"
       name="name"
       [(ngModel)]="contact.name"
       #name="ngModel"
       required
-    />
+    /></td></tr>
     <div *ngIf="name.invalid && name.touched">Name is required.</div>
   </div>
 
   <!-- Email Field -->
   <div>
-    <label for="email">Email:</label>
-    <input
+    <tr> <td><label for="email">Email:</label></td>
+    <td><input
       type="email"
       id="email"
       name="email"
@@ -2211,26 +2203,26 @@ contact .html
       #email="ngModel"
       required
       email
-    />
+    /></td></tr>
     <div *ngIf="email.invalid && email.touched">A valid email is required.</div>
   </div>
 
   <!-- Message Field -->
   <div>
-    <label for="message">Message:</label>
-    <textarea
+    <tr> <td><label for="message">Message:</label></td> 
+    <td><textarea
       id="message"
       name="message"
       [(ngModel)]="contact.message"
       #message="ngModel"
       required
-    ></textarea>
+    ></textarea></td>
     <div *ngIf="message.invalid && message.touched">Message is required.</div>
   </div>
 
   <!-- Submit Button -->
-  <button type="submit" [disabled]="contactForm.invalid">Submit</button>
-
+ <tr> <td><button type="submit" [disabled]="contactForm.invalid">Submit</button></tr>
+</table>
 </form>
 --------------------------------------------------------------------------------------
 
@@ -2245,12 +2237,88 @@ import {ReactiveFormModule} from '@angular/forms';
 import:[ReactiveFormModule],
 
 -------------------------------------------------------------------------------------------
+app.module.ts
+-----------------------------
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
 
-<label>
-Name:
-<input type="text" [formControl]="name">
-</label>
-------------------------------------------------------------
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule  // <-- important
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+-----------------------------------------------------------------------------------------------
+app.component.ts
+---------------------------------------
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  myForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.myForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      age: [null, [Validators.required, Validators.min(18)]]
+    });
+  }
+
+  onSubmit() {
+    if (this.myForm.valid) {
+      console.log(this.myForm.value);
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+}
+--------------------------------------------------------------------------------------------------------
+app.component.ts
+------------------------------------------------
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name">
+    <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+      Name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email">
+    <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+      Enter a valid email.
+    </div>
+  </div>
+
+  <div>
+    <label for="age">Age:</label>
+    <input id="age" type="number" formControlName="age">
+    <div *ngIf="myForm.get('age')?.invalid && myForm.get('age')?.touched">
+      Must be at least 18 years old.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
+----------------------------------------------------------------------------------------------------
+
+*In Angular 15, FormBuilder is part of the Reactive Forms module and is used to simplify the creation of form controls, form groups, and form arrays. It reduces the boilerplate code when building complex forms.
+------------------------------------------------------------------------------------
 We have registered the form control to the name input element .
 Now the form control and DOM element communicate with each other and the view  reflects the changes in the model. The model reflects the changes to the view.
 
