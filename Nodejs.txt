@@ -1241,3 +1241,74 @@ var server = app.listen(8000, function () {
   console.log("Example app listening at http://%s:%s", host, port)  
 })  
 ------------------------------------------------------------------------------------------
+1. Which of the following is true about Node.js?
+A) It is a programming language
+B) It is a client-side framework
+C) It is a server-side runtime environment
+D) It is a database
+Answer: C
+
+2. Which module in Node.js is used to create a web server?
+A) net
+B) url
+C) http
+D) fs
+Answer: C
+
+3. What is the command to initialize a new Node.js project?
+A) node init
+B) npm install
+C) npm init
+D) node start
+Answer: C
+
+4. What does the fs module stand for in Node.js?
+A) File Storage
+B) File System
+C) File Server
+D) Fast Server
+Answer: B
+
+5. Which of these is used to handle asynchronous operations in Node.js?
+A) Threads
+B) Promises
+C) Tasks
+D) Loops
+Answer: B
+
+6. Which of the following is NOT a core module in Node.js?
+A) http
+B) fs
+C) events
+D) express
+Answer: D
+
+7. What does the require function do in Node.js?
+A) Imports a module
+B) Exports a function
+C) Initializes a server
+D) Reads a file
+Answer: A
+
+8. What is npm in Node.js?
+A) Node Package Manager
+B) Node Process Manager
+C) Network Proxy Manager
+D) Node Programming Module
+Answer: A
+
+9. How does Node.js handle child threads?
+A) It uses multiple threads for each request
+B) It creates a new process for each request
+C) It runs on a single thread using async calls
+D) It uses multi-threading internally like Java
+Answer: C
+
+10. Which method is used to read a file asynchronously in Node.js?
+A) fs.readFileSync()
+B) fs.readFile()
+C) file.read()
+D) file.readSync()
+Answer: B
+
+-------------------------------------------------------------------------
