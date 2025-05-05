@@ -1,0 +1,170 @@
+1)which method is used to redirect from one page to another page.
+a)res.send('/newurl')
+b)app.redirect('./newurl')
+c)res.goto('./newurl')
+d)none
+ans:d
+
+2)Default view engine of expressjs
+ans)PUG
+
+3)Which of the following command is used to generate express application skeleton using express generator
+i)express-generate my-project
+ii)express my-project
+iii)express now my-project
+iv)npm express my-project
+Ans- b
+
+4)Form input accessed by
+req.body.username
+req.params.username
+req.form.username
+req.username
+
+5)static asserts  like html,css,js,imgs can be viewd in 
+a)public 
+b)view
+ans:public
+
+6)what is the primary use of middle-ware
+a)handling errors
+b)function between req and res pipeline
+ ans:b
+
+7)fun say(str="hi"){
+                            console.log(str); }
+say("hello")
+ans:hello
+
+8)In which file both development and testing  files accesed in package.json
+a)devdependencies
+b)main
+c)script
+d)dependencies
+ans:a
+
+9)how to check version of node
+a)node --v
+b)node -v
+c)node --ver
+d)node -version
+ans:b
+
+10)which command is used to create package.json file
+ans:npm init
+
+11)module.exports={a:1}
+     const b=require("./path")
+     console.log(b)
+a)error
+b)undefined
+c)null
+d)prints{a:1}
+e){}
+ans: d
+
+12)which method is applicable for all http verbs:post,put,set etc
+a)app.use()
+b)app.get()
+c)app.listen([path],[port],[callback])
+d)res.send()
+e)none
+ans:e
+
+13)how to configure resources in express
+a)app.get()
+b)app.post()
+c)app.config()
+d)app.set()
+ans:d
+
+14)res.render() is used for what
+ans:to render a view template in the application
+
+15)which is used to create new resource in server page
+a)put
+b)post
+c)patch
+d)delete
+ans:b
+
+16)which module is used for deriving one class to another class
+a)module
+b)require
+c)import
+d)util
+ans:d
+
+17)which command is used for creating skeleton of express generator
+a) express-generate my-project
+b)express my-project
+c)express new my-project
+d)npm express my-project
+ans:b
+
+18)app.all('/products/*',callback) match for which of the following
+a)all with /product
+b)all with /product/cool
+c)with /product/362
+d)all of the above
+ans:b,c
+
+19)How to install specific versionof npm package
+ans:npm install <packagename>@version
+
+20)module.exports=["abc","def","hij","klm","xyz"]
+    const a=require("./path')
+    console.log(a[2])
+ans:hij
+
+21) which of the following is correct 
+a)already defined in module.export, something all exports ignored
+b)already defined in module.export, something all exportsis considered
+c)return the reference in require
+d)by default module.export isnot  empty
+ans: a,c
+22)Node js default engine
+ans)V8
+
+23)app.set('view engine',_______)
+a)pug
+b)hbs
+c)ejs
+d)all of the above
+ans:d
+
+24)which of the following is inbuilt middleware
+a)express.static
+b)express.urlencoded
+c)express.text
+d)express.dynamic
+e)express.raw
+ans:a,b,c,e
+
+25)how to initialize package.json
+ans:npm init
+
+26)how to install default package.json
+
+27)express generator config in which file
+a)app
+b)bin
+c)www
+ans:bin
+
+28)how to run watch included in scripts in package.json
+ ans:npm run watch
+
+29)How to uninstall package
+ans:npm uninstall <package-name>
+
+30)
+ 
+
+
+
+
+
+
+
+
